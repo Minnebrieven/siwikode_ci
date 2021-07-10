@@ -54,12 +54,9 @@
         						<div id="jenis_wisata_id" class="col-sm-12">
         							<select class="form-control" name="jenis_wisata_id" required>
 										<option hidden>Pilih Jenis Wisata</option>
-									<?php
-									$count = 0;
-									foreach ($jenis_wisata->result() as $row) :
-									$count++;?>
-										<option value="<?php echo $row->id; ?>" <?php if ($row->id == $id) echo "selected"; ?> ><?php echo $row->nama; ?></option>
-									<?php endforeach?>
+										<?php foreach ($jenis_wisata->result() as $row) :?>
+											<option value="<?php echo $row->id; ?>" <?php if ($row->id == $jenis_wisata_id) echo "selected"; ?> ><?php echo $row->nama; ?></option>
+										<?php endforeach?>
         							</select>
         						</div>
         					</div><!-- .form-group -->

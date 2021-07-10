@@ -51,8 +51,21 @@ class User extends CI_Controller {
         $nama = $this->input->post('nama');
         $username = $this->input->post('username');
         $password = $this->input->post('password');
-        if ($this->user_model->daftar($nama, $username, $password, $role = "user")) {
-            redirect('home');
+        if ($this->user_model->daftar($nama, $username, $password)) {
+            $checking = $this->user_model->login($username,$password);
+            if ($checking == true) {
+                foreach ($checking as $apps) {
+                $session_data = array(
+                'id'   => $apps->id,
+                'nama' => $apps->nama,
+                'username' => $apps->username,
+                'password' => $apps->password,
+                'role' => $apps->role
+                );
+                $this->session->set_userdata($session_data);
+                redirect('home');
+            }
+        }
         }
         else{
             redirect('home');

@@ -21,7 +21,7 @@ class User_model extends CI_Model
            }
     }
 
-    public function daftar($nama, $username, $password, $role)
+    public function daftar($nama, $username, $password, $role = "admin")
     {
         $data = array(
             'nama' => $nama,

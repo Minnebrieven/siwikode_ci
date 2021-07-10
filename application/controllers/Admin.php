@@ -11,6 +11,10 @@ class Admin extends CI_Controller{
     $this->load->model('jenis_model');
     $this->load->model('kuliner_model');
     $this->load->model('profesi_model');
+
+    if ($this->session->role != "admin") {
+      redirect('home');
+    }
   }
 
     function index(){

@@ -27,34 +27,10 @@
             </ol>
                 <div class="carousel-inner">
                     <div class="item carousel-img active" style="background-image:url(<?php echo base_url('public/assets/img/place/amazingfarm.jpg');?>);background-position:center bottom;">
-                        <div class="container">
-                            <div class="carousel-caption mt-70">
-                                <h1 class="text-left font-open-sans text-uppercase color-light">We Talk <strong>New <i class="fa fa-lightbulb-o"></i> Idea</strong> Everyday</h1>
-                                <p class="color-light text-left mt20 ml10">Wordpress. Joomla. eCommerce. HTML. Etc.<br>
-                                    <a href="#" class="button button-pasific hover-ripple-out button-md mt30">Start Project</a>
-                                </p>
-
-                            </div>
-                        </div>
                     </div>
                     <div class="item carousel-img ">
-                        <div class="container">
-                            <div class="carousel-caption">
-                                <h1 class="font-pacifico text-capitalize color-light alpha7">First step <span class="text-lowercase">to be</span> success.<br>
-                                    <a href="#" class="color-light mt30 alpha9">Signup now.</a>
-                                </h1>
-                            </div>
-                        </div>
                     </div>
                     <div class="item carousel-img ">
-                        <div class="container">
-                            <div class="carousel-caption">
-                                <h1 class="font-pacifico text-capitalize text-right color-black alpha7 mt-50">We work for<br>better future.</h1>
-                                <p class="mt25 text-right color-light">
-                                    <a href="#" class="button button-pasific hover-ripple-out button-md mt30">Start Project</a>
-                                </p>
-                            </div>
-                        </div>
                     </div>
                 </div>
             <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
@@ -223,8 +199,9 @@
                 </div><!-- row end -->
             </div><!-- container end -->
         </div><!-- section testimonial end -->
-        <?php endif ?>    
-        
+        <?php endif ?>
+
+
         <?php $this->load->view('_includes/footer'); ?>
 
         <!-- Google Map

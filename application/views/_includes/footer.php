@@ -16,10 +16,10 @@
                         <div class="col-md-2 col-md-offset-1 col-sm-3 col-xs-4">
                             <h6 class="font-montserrat text-uppercase color-black">Menu</h6>
                             <ul class="no-icon-list">
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Service</a></li>
-                                <li><a href="#">Member</a></li>
+                                <li><a href="<?php echo base_url('home'); ?>">Home</a></li>
+                                <li><a href="<?php echo base_url('wisata/rekreasi'); ?>">Rekreasi</a></li>
+                                <li><a href="<?php echo base_url('wisata/kuliner'); ?>">Kuliner</a></li>
+                                <li><a href="<?php echo base_url('home'); ?>">Our Team</a></li>
                             </ul>
                         </div>
                         <!-- footer menu one end -->
