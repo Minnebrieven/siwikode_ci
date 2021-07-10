@@ -12,38 +12,28 @@ class Jenis_model extends CI_Model{
 
     function get_jenis_wisata($id)
     {
-        $query = $this->db->get_where('testimoni', array('id' => $id));
+        $query = $this->db->get_where('jenis_wisata', array('id' => $id));
         return $query;
     }
 
-    function save($nama,$email,$wisata_id,$profesi_id,$rating,$komentar){
+    function save($nama){
         $data = array(
-          'nama' => $nama,
-          'email' => $email,
-          'wisata_id' => $wisata_id,
-          'profesi_id' => $profesi_id,
-          'rating' => $rating,
-          'komentar' => $komentar,
+          'nama' => $nama
         );
-        $this->db->insert('testimoni',$data);
+        $this->db->insert('jenis_wisata',$data);
     }
 
     function delete($id)
     {
         $this->db->where('id', $id);
-        $this->db->delete('testimoni');
+        $this->db->delete('jenis_wisata');
     }
 
-    function update($id,$nama,$email,$wisata_id,$profesi_id,$rating,$komentar){
+    function update($id,$nama){
         $data = array(
-          'nama' => $nama,
-          'email' => $email,
-          'wisata_id' => $wisata_id,
-          'profesi_id' => $profesi_id,
-          'rating' => $rating,
-          'komentar' => $komentar,
+          'nama' => $nama
         );
         $this->db->where('id', $id);
-        $this->db->update('testimoni', $data);
+        $this->db->update('jenis_wisata', $data);
     }
 }

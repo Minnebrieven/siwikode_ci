@@ -14,6 +14,12 @@ class Testimoni_model extends CI_Model{
         return $query;
     }
 
+    function detail_wisata($id)
+    {
+        $query = $this->db->get_where('testimoni', array('wisata_id' => $id));
+        return $query;
+    }
+
     function save($nama,$email,$wisata_id,$profesi_id,$rating,$komentar){
         $data = array(
           'nama' => $nama,

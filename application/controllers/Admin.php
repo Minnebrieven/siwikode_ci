@@ -13,13 +13,13 @@ class Admin extends CI_Controller{
     $this->load->model('profesi_model');
   }
 
-    public function index(){
+    function index(){
         $this->load->view('admin/index');
     }
 
     // Testimoni Section
 
-	public function testimoni()
+	function testimoni()
 	{
     $data['testimoni'] = $this->testimoni_model->getAll();
     $this->load->view('admin/testimoni/index', $data);
@@ -121,13 +121,13 @@ class Admin extends CI_Controller{
 //   End of Testimoni Section
 
 //   Wisata Section
-  public function wisata()
+  function wisata()
 	{
     $data['wisata'] = $this->wisata_model->getAll();
     $this->load->view('admin/wisata/index', $data);  
 	}
 
-    function detail_wisata()
+  function detail_wisata()
   {
     $wisata_id = $this->uri->segment('3');
     $result = $this->wisata_model->get_wisata($wisata_id);
@@ -239,6 +239,167 @@ class Admin extends CI_Controller{
     redirect('admin/wisata');
   }
 
-}
+
 // End of Wisata Section
+
+// start of Master section
+// start of Profesi section
+function profesi(){
+  $data['profesi'] = $this->profesi_model->getAll();
+  $this->load->view('admin/profesi/index', $data);
+}
+
+function add_new_profesi()
+{
+  $this->load->view('admin/profesi/add_profesi_view');
+}
+
+function save_profesi(){
+$nama = $this->input->post('nama');
+$this->profesi_model->save($nama);
+redirect('admin/profesi');
+}
+
+function delete_profesi()
+{
+$profesi_id = $this->uri->segment('3');
+$this->profesi_model->delete($profesi_id);
+redirect('admin/profesi');
+}
+
+function get_edit_profesi()
+{
+$profesi_id = $this->uri->segment('3');
+$result = $this->profesi_model->get_profesi($profesi_id);
+if($result->num_rows() > 0)
+{
+  $i = $result->row_array();
+  $data = array
+  (
+    'id' => $i['id'],
+    'nama' => $i['nama']
+  );
+  $this->load->view('admin/profesi/edit_profesi_view', $data);
+}
+else
+{
+  echo "Data Was Not Found";
+}
+}
+
+function update_profesi()
+{
+$id = $this->input->post('id');
+$nama = $this->input->post('nama');
+$this->profesi_model->update($id,$nama);
+redirect('admin/profesi');
+}
+// end of Profesi section
+
+// start of jenis_wisata section
+function jenis_wisata(){
+  $data['jenis_wisata'] = $this->jenis_model->getAll();
+  $this->load->view('admin/jenis_wisata/index', $data);
+}
+
+function add_new_jenis_wisata()
+{
+  $this->load->view('admin/jenis_wisata/add_jenis_wisata_view');
+}
+
+function save_jenis_wisata(){
+$nama = $this->input->post('nama');
+$this->jenis_model->save($nama);
+redirect('admin/jenis_wisata');
+}
+
+function delete_jenis_wisata()
+{
+$jenis_wisata_id = $this->uri->segment('3');
+$this->jenis_model->delete($jenis_wisata_id);
+redirect('admin/jenis_wisata');
+}
+
+function get_edit_jenis_wisata()
+{
+$jenis_wisata_id = $this->uri->segment('3');
+$result = $this->jenis_model->get_jenis_wisata($jenis_wisata_id);
+if($result->num_rows() > 0)
+{
+  $i = $result->row_array();
+  $data = array
+  (
+    'id' => $i['id'],
+    'nama' => $i['nama']
+  );
+  $this->load->view('admin/jenis_wisata/edit_jenis_wisata_view', $data);
+}
+else
+{
+  echo "Data Was Not Found";
+}
+}
+
+function update_jenis_wisata()
+{
+$id = $this->input->post('id');
+$nama = $this->input->post('nama');
+$this->jenis_model->update($id,$nama);
+redirect('admin/jenis_wisata');
+}
+// end of Profesi section
+
+// start of jenis_kuliner section
+function jenis_kuliner(){
+  $data['jenis_kuliner'] = $this->kuliner_model->getAll();
+  $this->load->view('admin/jenis_kuliner/index', $data);
+}
+
+function add_new_jenis_kuliner()
+{
+  $this->load->view('admin/jenis_kuliner/add_jenis_kuliner_view');
+}
+
+function save_jenis_kuliner(){
+$nama = $this->input->post('nama');
+$this->kuliner_model->save($nama);
+redirect('admin/jenis_kuliner');
+}
+
+function delete_jenis_kuliner()
+{
+$jenis_kuliner_id = $this->uri->segment('3');
+$this->kuliner_model->delete($jenis_kuliner_id);
+redirect('admin/jenis_kuliner');
+}
+
+function get_edit_jenis_kuliner()
+{
+$jenis_kuliner_id = $this->uri->segment('3');
+$result = $this->kuliner_model->get_jenis_kuliner($jenis_kuliner_id);
+if($result->num_rows() > 0)
+{
+  $i = $result->row_array();
+  $data = array
+  (
+    'id' => $i['id'],
+    'nama' => $i['nama']
+  );
+  $this->load->view('admin/jenis_kuliner/edit_jenis_kuliner_view', $data);
+}
+else
+{
+  echo "Data Was Not Found";
+}
+}
+
+function update_jenis_kuliner()
+{
+$id = $this->input->post('id');
+$nama = $this->input->post('nama');
+$this->kuliner_model->update($id,$nama);
+redirect('admin/jenis_kuliner');
+}
+// end of Profesi section
+}
 ?>

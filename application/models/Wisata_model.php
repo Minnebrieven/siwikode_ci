@@ -8,6 +8,22 @@ class Wisata_model extends CI_Model{
         return $result;
     }
 
+    function getbyJenis($jenis)
+    {
+        if ($jenis == "rekreasi") {
+            $query = $this->db->query('SELECT * FROM wisata WHERE jenis_wisata_id NOT IN (SELECT jenis_wisata_id FROM wisata WHERE jenis_wisata_id = 2)');
+            return $query;
+        }
+        elseif ($jenis == "kuliner") {
+            $query = $this->db->query('SELECT * FROM wisata WHERE jenis_wisata_id = 2');
+            return $query;
+        }
+        else{
+            echo "404";
+        }
+        
+    }
+
     function get_wisata($id)
     {
         $query = $this->db->get_where('wisata', array('id' => $id));
