@@ -6,6 +6,12 @@ class User_model extends CI_Model
         return $this->session->userdata('id');
     }
 
+    public function count()
+    {
+        $count = $this->db->query('SELECT COUNT(id) from user');
+        return $count;
+    }
+
     public function login($username, $password)
     {
         $query = $this->db->get_where('user', array('username' => $username));
