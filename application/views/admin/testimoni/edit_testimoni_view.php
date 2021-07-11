@@ -72,7 +72,7 @@
 									$count = 0;
 									foreach ($profesi->result() as $row) :
 									$count++;?>
-										<option value="<?php echo $row->id; ?>" <?php if ($row->id == $id) echo "selected"; ?>><?php echo $row->nama; ?></option>
+										<option value="<?php echo $row->id; ?>" <?php if ($row->id == $profesi_id) echo "selected"; ?>><?php echo $row->nama; ?></option>
 									<?php endforeach?>
         							</select>
         						</div>
