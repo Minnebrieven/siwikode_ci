@@ -41,6 +41,7 @@ class Wisata extends CI_Controller {
       $i = $result->row_array();
       $data = array
       (
+        'id' => $i['id'],
         'nama' => $i['nama'],
         'deskripsi' => $i['deskripsi'],
         'jenis_wisata_id' => $i['jenis_wisata_id'],
@@ -52,6 +53,7 @@ class Wisata extends CI_Controller {
         'email' => $i['email'],
         'web' => $i['web'],
         'jenis_kuliner_id' => $i['jenis_kuliner_id'],
+        'image' => $i['image'],
         'testimoni' => $testimoni
       );
       $this->load->view('detail', $data);

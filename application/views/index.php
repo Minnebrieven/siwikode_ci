@@ -21,7 +21,7 @@
         
         <!-- Intro Area
         ===================================== -->
-        <header class="pt100 pb100 bg-grad-stellar" style="background-image: url(<?php echo base_url('public/');?>assets/img/bg/new-img-bg-4.jpg); background-repeat: no-repeat; background-color: #fff; background-size: cover;">
+        <header class="pt100 pb100 bg-grad-stellar" style="background-image: url(<?php echo base_url('public/');?>assets/img/bg/home.jpg); background-repeat: no-repeat; background-color: #fff; background-size: cover;">
 
                 <div class="container mt100 mb70">
                     
@@ -77,7 +77,7 @@
                 <div class="row pt50">
 
                     <div class="col-md-4 col-sm-4 col-xs-12 text-center">
-                        <span class="icon-briefcase el-icon3x color-white"></span>
+                        <span class="icon-chat el-icon3x color-white"></span>
                         <div class="fact">                                    
                             <div class="fact-number timer" data-perc="387">
                                 <span class="factor color-white"></span>
@@ -87,7 +87,7 @@
                     </div>
 
                     <div class="col-md-4 col-sm-4 col-xs-12 text-center">
-                        <span class="icon-happy el-icon3x color-white"></span>
+                        <span class="icon-hotairballoon el-icon3x color-white"></span>
                         <div class="fact">                                    
                             <div class="fact-number timer" data-perc="545">
                                 <span class="factor color-white"></span>
@@ -97,7 +97,7 @@
                     </div>
 
                     <div class="col-md-4 col-sm-4 col-xs-12 text-center">
-                        <span class="icon-megaphone el-icon3x color-white"></span>
+                        <span class="icon-wine el-icon3x color-white"></span>
                         <div class="fact">                                    
                             <div class="fact-number timer" data-perc="750">
                                 <span class="factor color-white"></span>

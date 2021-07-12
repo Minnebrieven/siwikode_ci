@@ -89,6 +89,7 @@
         							<textarea name="komentar" id="komentar" class="form-control" cols="30" rows="5" placeholder="Masukan Deskripsi Wisata"><?php echo $komentar ?></textarea>
         						</div>
         					</div><!-- .form-group -->
+							<input type="hidden" name="image" value="<?php echo $image ?>">
                             <br>
                             <button type="submit" class="col-md-3 btn btn-primary btn-block" style="float:right">Edit</button>
         				</form>

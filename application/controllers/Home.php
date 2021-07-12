@@ -23,4 +23,9 @@ class Home extends CI_Controller {
 		$data['wisata'] = $this->wisata_model->getAll();
 		$this->load->view('wisata',$data);
 	}
+
+	public function team()
+	{
+		$this->load->view('our_team');
+	}
 }

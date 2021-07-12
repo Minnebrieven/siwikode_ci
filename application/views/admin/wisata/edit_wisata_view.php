@@ -116,6 +116,7 @@
         							</select>
         						</div>
         					</div><!-- .form-group -->
+							<input type="hidden" name="image" value="<?php echo $image ?>">
                             <br>
                             <button type="submit" class="col-md-3 btn btn-primary btn-block" style="float:right">Edit</button>
         				</form>

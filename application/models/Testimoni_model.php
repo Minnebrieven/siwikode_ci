@@ -30,6 +30,9 @@ class Testimoni_model extends CI_Model{
           'komentar' => $komentar,
         );
         $this->db->insert('testimoni',$data);
+        $insert_id = $this->db->insert_id();
+        
+        return $insert_id;
     }
 
     function delete($id)
@@ -45,7 +48,16 @@ class Testimoni_model extends CI_Model{
           'wisata_id' => $wisata_id,
           'profesi_id' => $profesi_id,
           'rating' => $rating,
-          'komentar' => $komentar,
+          'komentar' => $komentar
+        );
+        $this->db->where('id', $id);
+        $this->db->update('testimoni', $data);
+    }
+
+    public function setImage($id, $image)
+    {
+        $data = array(
+            'image' => $image
         );
         $this->db->where('id', $id);
         $this->db->update('testimoni', $data);

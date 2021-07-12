@@ -42,7 +42,7 @@ class Wisata_model extends CI_Model{
                 'alamat' => $alamat,
                 'latlong' => $latlong,
                 'email' => $email,
-                'web' => $web
+                'web' => $web,
             );
         } else {
         $data = array(
@@ -56,10 +56,13 @@ class Wisata_model extends CI_Model{
           'latlong' => $latlong,
           'email' => $email,
           'web' => $web,
-          'jenis_kuliner_id' => $jenis_kuliner_id
+          'jenis_kuliner_id' => $jenis_kuliner_id,
         );
         }
         $this->db->insert('wisata',$data);
+        $insert_id = $this->db->insert_id();
+        
+        return $insert_id;
     }
 
     function delete($id)
@@ -68,7 +71,7 @@ class Wisata_model extends CI_Model{
         $this->db->delete('wisata');
     }
 
-    function update($id,$nama,$deskripsi,$jenis_wisata_id,$fasilitas,$bintang,$kontak,$alamat,$latlong,$email,$web,$jenis_kuliner_id){
+    function update($id,$nama,$deskripsi,$jenis_wisata_id,$fasilitas,$bintang,$kontak,$alamat,$latlong,$email,$web,$jenis_kuliner_id,$image){
         if ($jenis_kuliner_id == '') {
             $data = array(
                 'nama' => $nama,
@@ -80,7 +83,8 @@ class Wisata_model extends CI_Model{
                 'alamat' => $alamat,
                 'latlong' => $latlong,
                 'email' => $email,
-                'web' => $web
+                'web' => $web,
+                'image' => $image
             );
         } else {
         $data = array(
@@ -94,9 +98,19 @@ class Wisata_model extends CI_Model{
           'latlong' => $latlong,
           'email' => $email,
           'web' => $web,
-          'jenis_kuliner_id' => $jenis_kuliner_id
+          'jenis_kuliner_id' => $jenis_kuliner_id,
+          'image' => $image
         );
         }
+        $this->db->where('id', $id);
+        $this->db->update('wisata', $data);
+    }
+
+    public function setImage($id, $image)
+    {
+        $data = array(
+            'image' => $image
+        );
         $this->db->where('id', $id);
         $this->db->update('wisata', $data);
     }

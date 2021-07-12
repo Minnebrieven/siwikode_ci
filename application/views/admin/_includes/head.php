@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="<?php echo base_url('public/admin/css/bootstrap.min.css');?>">
   <link rel="stylesheet" href="<?php echo base_url('public/admin/css/app.css');?>">
   <!-- icon -->
-  <link rel="icon" href="<?php echo base_url('public/admin/img/log.png');?>">
+  <link rel="icon" href="<?php echo base_url('public/');?>assets/img/favicon.png">
   <!-- end linking -->
   <title>SIWIKODE - admin</title>
 </head>

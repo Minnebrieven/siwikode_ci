@@ -11,7 +11,8 @@ class Admin extends CI_Controller{
     $this->load->model('jenis_model');
     $this->load->model('kuliner_model');
     $this->load->model('profesi_model');
-
+    $this->load->helper(array('form', 'url'));
+    
     if ($this->session->role != "admin") {
       redirect('home');
     }
@@ -43,8 +44,12 @@ class Admin extends CI_Controller{
     $profesi_id = $this->input->post('profesi_id');
     $rating = $this->input->post('rating');
     $komentar = $this->input->post('komentar');
-    $this->testimoni_model->save($nama,$email,$wisata_id,$profesi_id,$rating,$komentar);
-    redirect('admin/testimoni');
+    $insert_id = $this->testimoni_model->save($nama,$email,$wisata_id,$profesi_id,$rating,$komentar);
+
+    $data['id'] = $insert_id;
+    $data['path'] = "avatar";
+
+    $this->load->view('admin/upload_foto', $data);
   }
 
   function delete_testimoni()
@@ -74,7 +79,8 @@ class Admin extends CI_Controller{
         'rating' => $i['rating'],
         'komentar' => $i['komentar'],
         'wisata' => $wisata,
-        'profesi' => $profesi
+        'profesi' => $profesi,
+        'image' => $i['image'],
       );
       $this->load->view('admin/testimoni/edit_testimoni_view', $data);
     }
@@ -93,8 +99,17 @@ class Admin extends CI_Controller{
     $profesi_id = $this->input->post('profesi_id');
     $rating = $this->input->post('rating');
     $komentar = $this->input->post('komentar');
+    $image = $this->input->post('image');
+    if ($image=="") {
+      $image = "default.jpg";
+    }
     $this->testimoni_model->update($id,$nama,$email,$wisata_id,$profesi_id,$rating,$komentar);
-    redirect('admin/testimoni');
+    
+    $data['id'] = $id;
+    $data['path'] = "testimoni";
+    $data['old_image'] = $image;
+
+    $this->load->view('admin/upload_foto', $data);
   }
 
   function detail_testimoni()
@@ -180,8 +195,12 @@ class Admin extends CI_Controller{
     $email = $this->input->post('email');
     $web = $this->input->post('web');
     $jenis_kuliner_id = $this->input->post('jenis_kuliner_id');
-    $this->wisata_model->save($nama,$deskripsi,$jenis_wisata_id,$fasilitas,$bintang,$kontak,$alamat,$latlong,$email,$web,$jenis_kuliner_id);
-    redirect('admin/wisata');
+    $insert_id = $this->wisata_model->save($nama,$deskripsi,$jenis_wisata_id,$fasilitas,$bintang,$kontak,$alamat,$latlong,$email,$web,$jenis_kuliner_id);
+
+    $data['id'] = $insert_id;
+    $data['path'] = "wisata";
+
+    $this->load->view('admin/upload_foto', $data);
   }
 
   function delete_wisata()
@@ -214,6 +233,7 @@ class Admin extends CI_Controller{
         'email' => $i['email'],
         'web' => $i['web'],
         'jenis_kuliner_id' => $i['jenis_kuliner_id'],
+        'image' => $i['image'],
         'jenis_wisata' => $jenis_wisata,
         'jenis_kuliner' => $jenis_kuliner
       );
@@ -239,8 +259,17 @@ class Admin extends CI_Controller{
     $email = $this->input->post('email');
     $web = $this->input->post('web');
     $jenis_kuliner_id = $this->input->post('jenis_kuliner_id');
-    $this->wisata_model->update($id,$nama,$deskripsi,$jenis_wisata_id,$fasilitas,$bintang,$kontak,$alamat,$latlong,$email,$web,$jenis_kuliner_id);
-    redirect('admin/wisata');
+    $image = $this->input->post('image');
+    if ($image=="") {
+      $image = "default.jpg";
+    }
+    $this->wisata_model->update($id,$nama,$deskripsi,$jenis_wisata_id,$fasilitas,$bintang,$kontak,$alamat,$latlong,$email,$web,$jenis_kuliner_id,$image);
+    
+    $data['id'] = $id;
+    $data['path'] = "wisata";
+    $data['old_image'] = $image;
+
+    $this->load->view('admin/upload_foto', $data);
   }
 
 
@@ -405,5 +434,53 @@ $this->kuliner_model->update($id,$nama);
 redirect('admin/jenis_kuliner');
 }
 // end of Profesi section
+
+public function do_upload()
+{
+  $id = $this->input->post('id');
+  $path = $this->input->post('path');
+  if ($path == "wisata") {
+    $config['upload_path']          = './upload/wisata';
+  }else{
+    $config['upload_path']          = './upload/avatar';
+  }
+  
+  $config['allowed_types']        = 'gif|jpg|png';
+  $config['max_size']             = 1024;
+  // $config['max_width']            = 1024;
+  // $config['max_height']           = 768;
+  $config['file_name']            = $id;
+
+  $this->load->library('upload', $config);
+  if (empty($_FILES["foto"]["name"])) {
+    if ($path == "wisata") {
+      $this->wisata_model->setImage($id, $old_image);
+    }
+    elseif ($path == "testimoni"){
+      $this->testimoni_model->setImage($id, $old_image);
+    }
+    redirect('admin/wisata/index');
+  }
+  else if ( ! $this->upload->do_upload('foto'))
+  {
+    $error = array('error' => $this->upload->display_errors());
+    $data['error'] = $this->upload->display_errors();
+    $data['id'] = $id;
+    $data['path'] = $path;
+    $this->load->view('admin/upload_foto', $data);
+  }
+  else
+  {
+    $data = array('upload_data' => $this->upload->data());
+    if ($path == "wisata") {
+      $this->wisata_model->setImage($id, $this->upload->data("file_name"));
+    }
+    elseif ($path == "testimoni"){
+      $this->testimoni_model->setImage($id, $this->upload->data("file_name"));
+    }
+    redirect('admin/'.$path.'/index');
+}
+}
+
 }
 ?>

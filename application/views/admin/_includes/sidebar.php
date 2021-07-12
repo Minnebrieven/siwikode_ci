@@ -3,7 +3,7 @@
     <!-- start with head -->
     <div class="head">
       <div class="logo">
-        <img src="<?php echo base_url('public/assets/img/logo/SIWIKODE-01.png')?>" alt="">
+        <img src="<?php echo base_url('public/assets/img/logo/SIWIKODE 30 x 30 Gradient-01.png')?>" alt="">
       </div>
     </div>
     <!-- end with head -->

@@ -19,35 +19,17 @@
 
         <!-- Intro Area
         ===================================== -->        
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-            </ol>
-                <div class="carousel-inner">
-                    <div class="item carousel-img active" style="background-image:url(<?php echo base_url('public/assets/img/place/amazingfarm.jpg');?>);background-position:center bottom;">
-                    </div>
-                    <div class="item carousel-img ">
-                    </div>
-                    <div class="item carousel-img ">
-                    </div>
+        <header class="intro pt100 pb100 parallax-window" data-parallax="scroll" data-speed="0.5" data-image-src="<?php echo base_url('upload/wisata/').$image;?>">
+            <div class="intro-body">
+                
+                <div class="intro-direction">
+                    <a href="#welcome">
+                        <div class="mouse-icon"><div class="wheel"></div></div>
+                    </a>
                 </div>
-            <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-            <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-            
-            <div class="svg-container-bottom">
-                <svg id="svgLineTop" xmlns="http://www.w3.org/2000/svg" version="1.1" 
-                     xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2000 350" preserveAspectRatio="xMinYMax">
-                    
-                    <polygon points="-150,350 0,300 3000,0 5200,350" 
-                             fill="#fff" stroke="none">
-                    </polygon>
-                    
-                </svg>
+                
             </div>
-            
-        </div>
+        </header>
 
         
         <!-- Welcome Area
@@ -180,7 +162,7 @@
                                         </p>
                                     </div>
                                     <div class="testimonial-footer">
-                                        <img src="<?php echo base_url('public/');?>assets/img/other/photo-1.jpg" alt="testimonial author" class="img-responsive img-circle">
+                                        <img src="<?php echo base_url('upload/avatar/').$row->image;?>" alt="testimonial author" class="img-responsive img-circle" style="display:block;max-width:60px;max-height:60px;width:auto;height:auto;">
                                         <i class="fa fa-quote-left"></i>
                                         <?php echo $row->nama; ?><a href=""><?php
                                                                             $x = 1;

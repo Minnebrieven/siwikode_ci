@@ -21,13 +21,13 @@
         
         <!-- Intro Area
         ===================================== -->
-        <header class="pt100 pb100 parallax-window-2" data-parallax="scroll" data-speed="0.5" data-image-src="<?php echo base_url('public/');?>assets/img/bg/bg-parallax-5.jpg" data-positionY="1000">
+        <header class="pt100 pb100 parallax-window-2" data-parallax="scroll" data-speed="0.5" data-image-src="<?php echo base_url('public/');?>assets/img/bg/bg-list.jpg" data-positionY="1000">
             <div class="intro-body text-center">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 pt50">
-                            <h1 class="brand-heading font-montserrat text-uppercase color-light" data-in-effect="fadeInDown">Gallery 2 Columns</h1>                           
-                            <h4 class="brand-heading font-montserrat text-uppercase color-light alpha5" data-in-effect="fadeInDown">Standart Image Gallery</h4>                           
+                            <h1 class="brand-heading font-montserrat text-uppercase color-light" data-in-effect="fadeInDown">Wisata Kota Depok</h1>                           
+                            <h4 class="brand-heading font-montserrat text-uppercase color-light alpha5" data-in-effect="fadeInDown">SIWIKODE</h4>                           
                         </div>
                     </div>
                     
@@ -50,10 +50,10 @@
 
                     <a href="<?php echo base_url('wisata/detail/'.$row->id); ?>">
                     <div class="col-md-6 col-sm-6 col-xs-6 mb25">
-                        <img src="<?php echo base_url('public/');?>assets/img/portfolio/thumbs/img-550x350-3.jpg" alt="gallery" class="img-responsive">
+                        <img src="<?php echo base_url('upload/wisata/').$row->image;?>" alt="gallery" class="img-responsive">
                         <h5 class="font-montserrat mt10">
                             <?php echo $row->nama ?>
-                            <small><?php echo $row->deskripsi?>.</small>
+                            <small><?php if($row->jenis_wisata_id != 2) echo $row->jenis_wisata_id; else echo $row->jenis_kuliner_id; ?></small>
                         </h5>
                     </div>
                     </a>

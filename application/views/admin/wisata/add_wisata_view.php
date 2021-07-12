@@ -119,7 +119,7 @@
         						</div>
         					</div><!-- .form-group -->
                             <br>
-                            <button type="submit" class="col-md-3 btn btn-primary btn-block" style="float:right">Tambah</button>
+                            <button type="submit" value="upload" class="col-md-3 btn btn-primary btn-block" style="float:right">Tambah</button>
         				</form>
         			</div>
         		</div><!-- END row -->

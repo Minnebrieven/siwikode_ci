@@ -7,7 +7,7 @@
                         <i class="fa fa-bars"></i>
                     </button>
                     <a class="navbar-brand navbar-brand-img page-scroll" href="#page-top">
-                        <img src="<?php echo base_url('public/');?>assets/img/logo/logo-default-img.png" alt="logo">
+                        <img src="<?php echo base_url('public/');?>assets/img/logo/SIWIKODE-navbar-white.png" alt="logo">
                     </a>
                 </div>
         
