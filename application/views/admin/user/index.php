@@ -15,11 +15,11 @@
       <!-- start head bottom -->
       <div class="bottom">
         <div class="left">
-          <h1>Wisata</h1>
+          <h1>User</h1>
         </div>
         <div class="right">
           <h1>dashboard /</h1>
-          <a href="#">Wisata</a>
+          <a href="#">User</a>
         </div>
       </div>
       <!-- end head bottom -->
@@ -32,10 +32,10 @@
             <div class="widget p-lg">
                 <div class="row">
                     <div class="col-md-6">
-                        <h4 class="m-b-lg">Daftar Wisata</h4>
+                        <h4 class="m-b-lg">Daftar User</h4>
                     </div>
                     <div class="col-md-6">
-                        <a href="<?php echo base_url('admin/add_new_wisata');?>" class="btn btn-primary btn-block" style="width:200px;float:right"><i class="fa fa-plus"></i>  Tambah</a>
+                        <a href="<?php echo base_url('admin/add_new_user');?>" class="btn btn-primary btn-block" style="width:200px;float:right"><i class="fa fa-plus"></i>  Tambah</a>
                     </div>
                 </div>
                 <br>
@@ -43,24 +43,25 @@
                     <tr>
                         <th>No</th>
                         <th>Nama</th>
-                        <th>Jenis Wisata</th>
-                        <th>Kontak</th>
+                        <th>Username</th>
+                        <th>Role</th>
+                        <th>Tanggal Dibuat</th>
                         <th>Action</th>
                     </tr>
                         <?php
                         $count = 0;
-                        foreach ($wisata->result() as $row) :
+                        foreach ($user->result() as $row) :
                         $count++;?>
                         
                     <tr>
                         <td><?php echo $count ?></td>
                         <td><?php echo $row->nama ?></td>
-                        <td><?php echo $row->jenis_wisata_id; ?></td>
-                        <td><?php echo $row->kontak ?></td>
+                        <td><?php echo $row->username; ?></td>
+                        <td><?php echo $row->role ?></td>
+                        <td><?php echo $row->created_at ?></td>
                         <td colspan="3">
-                            <a href="<?php echo site_url('admin/get_edit_wisata/'.$row->id); ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Edit</a>
-                            <a href="<?php echo site_url('wisata/detail/'.$row->id); ?>" class="btn btn-primary btn-sm"  style="background-color:#2578AF"><i class="fa fa-info-circle"></i> Detail</a>
-                            <a href="<?php echo site_url('admin/delete_wisata/'.$row->id); ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</a>
+                            <a href="<?php echo site_url('admin/get_edit_user/'.$row->id); ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Edit</a>
+                            <a href="<?php echo site_url('admin/delete_user/'.$row->id); ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</a>
                         </td>
 
                     </tr>

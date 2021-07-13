@@ -33,17 +33,19 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#">Our Team</a>
+                            <a href="<?php echo base_url('home/team'); ?>">Our Team</a>
                         </li>
-                        <li><a href="#" data-toggle="modal" data-target="#searchModal"><i class="fa fa-search fa-fw color-green"></i></a></li>
                         <?php if ($this->session->id): ?>
                         <li class="dropdown menu-fw"><a href="#" data-toggle="dropdown" class="dropdown-toggle color-light"><?php echo $this->session->nama; ?> </a>
                             <ul class="dropdown-menu fullwidth">
                                 <li class="menu-content withoutdesc">
                                     <div class="row">
                                         <div class="col-sm-12">
-                                            <h3 class="title text-uppercase font-montserrat color-dark">Akun</h3>
+                                            <h3 class="title text-uppercase font-montserrat color-dark">Akun etc.</h3>
                                             <ul>
+                                                <?php if ($this->session->role == "admin"): ?>
+                                                <li><a href="<?php echo base_url('admin'); ?>">Admin Panel</a></li>
+                                                <?php endif ?>
                                                 <li><a href="<?php echo base_url('user/logout'); ?>">Logout</a></li>
                                             </ul>
                                         </div>

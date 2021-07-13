@@ -13,6 +13,7 @@
         <li class="nav-item"><a href="<?php echo base_url('admin')?>" class="nav-link active" id="dashboard"><i class="fa fa-adjust"></i>Dashboard</a></li>
         <li class="nav-item"><a href="<?php echo base_url('admin/wisata')?>" class="nav-link" id="wisata"><i class="fa fa-umbrella-beach"></i>Wisata</a></li>
         <li class="nav-item"><a href="<?php echo base_url('admin/testimoni')?>" class="nav-link" id="testimoni"><i class="fa fa-comment-dots"></i>Testimoni</a></li>
+        <li class="nav-item"><a href="<?php echo base_url('admin/user')?>" class="nav-link" id="user"><i class="fa fa-users"></i>User</a></li>
         <br>
         <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-columns"></i>Master</a></li>
         <div style="margin-left:25px">

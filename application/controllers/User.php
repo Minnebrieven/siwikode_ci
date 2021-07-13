@@ -41,7 +41,8 @@ class User extends CI_Controller {
             }
         }
         } else {
-            $this->load->view('home');
+            $data['message'] = "Wrong Username or Password";
+            $this->load->view('login', $data);
         }
     }
     }

@@ -42,21 +42,33 @@
         <div class="pt75 pb75">
             <div class="container">
                 <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="text-center mb50">
+                            Wisata Kota Depok
+                            <small class="heading heading-double center-block"></small>
+                        </h2>
+                    </div>
+                <div class="row">
                     
                     <?php
                     $count = 0;
                     foreach ($wisata->result() as $row) :
                     $count++;?>
 
-                    <a href="<?php echo base_url('wisata/detail/'.$row->id); ?>">
-                    <div class="col-md-6 col-sm-6 col-xs-6 mb25">
-                        <img src="<?php echo base_url('upload/wisata/').$row->image;?>" alt="gallery" class="img-responsive">
-                        <h5 class="font-montserrat mt10">
-                            <?php echo $row->nama ?>
-                            <small><?php if($row->jenis_wisata_id != 2) echo $row->jenis_wisata_id; else echo $row->jenis_kuliner_id; ?></small>
-                        </h5>
-                    </div>
-                    </a>
+                        <a href="<?php echo base_url('wisata/detail/'.$row->id); ?>">
+                        <div class="col-md-6 col-sm-6 col-xs-12 mb25">
+                            <img src="<?php echo base_url('upload/wisata/').$row->image;?>" alt="gallery" class="img-responsive" >
+                            <h5 class="font-montserrat mt10">
+                                <?php echo $row->nama ?>
+                                <small><?php
+                                $x = 1;
+                                while ($x <= $row->bintang) :
+                                $x++;?>
+                                <i class="fa fa-star color-yellow"></i>
+                                <?php endwhile; ?></small>
+                            </h5>
+                        </div>
+                        </a>
                     
                     <?php endforeach ?>
 

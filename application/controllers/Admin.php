@@ -11,6 +11,7 @@ class Admin extends CI_Controller{
     $this->load->model('jenis_model');
     $this->load->model('kuliner_model');
     $this->load->model('profesi_model');
+    $this->load->model('user_model');
     $this->load->helper(array('form', 'url'));
     
     if ($this->session->role != "admin") {
@@ -274,6 +275,66 @@ class Admin extends CI_Controller{
 
 
 // End of Wisata Section
+
+// start of user section
+function user(){
+  $data['user'] = $this->user_model->getAll();
+  $this->load->view('admin/user/index', $data);
+}
+
+function add_new_user()
+{
+  $this->load->view('admin/user/add_user_view');
+}
+
+function save_user(){
+$nama = $this->input->post('nama');
+$username = $this->input->post('username');
+$password = $this->input->post('password');
+$role = $this->input->post('role');
+$this->user_model->daftar($nama,$username,$password,$role);
+redirect('admin/user');
+}
+
+function delete_user()
+{
+$user_id = $this->uri->segment('3');
+$this->user_model->delete($user_id);
+redirect('admin/user');
+}
+
+function get_edit_user()
+{
+$user_id = $this->uri->segment('3');
+$result = $this->user_model->get_user($user_id);
+if($result->num_rows() > 0)
+{
+  $i = $result->row_array();
+  $data = array
+  (
+    'id' => $i['id'],
+    'nama' => $i['nama'],
+    'username' => $i['username'],
+    'role' => $i['role']
+  );
+  $this->load->view('admin/user/edit_user_view', $data);
+}
+else
+{
+  echo "Data Was Not Found";
+}
+}
+
+function update_user()
+{
+$id = $this->input->post('id');
+$nama = $this->input->post('nama');
+$username = $this->input->post('username');
+$role = $this->input->post('role');
+$this->user_model->update($id,$nama,$username,$role);
+redirect('admin/user');
+}
+// end of user section
 
 // start of Master section
 // start of Profesi section

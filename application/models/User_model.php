@@ -20,14 +20,14 @@ class User_model extends CI_Model
             if (password_verify($password,$hash)){
              return $query->result();
             } else {
-             echo "Wrong Password. Try again.";
+             echo FALSE;
             }
            } else {
-            echo "Account is not existed.";
+            echo FALSE;
            }
     }
 
-    public function daftar($nama, $username, $password, $role = "admin")
+    public function daftar($nama, $username, $password, $role = "user")
     {
         $data = array(
             'nama' => $nama,
@@ -42,6 +42,34 @@ class User_model extends CI_Model
     private function hash_password($password) {
         return password_hash($password, PASSWORD_BCRYPT);
        }
+
+    public function getAll()
+    {
+        $result = $this->db->get('user');
+        return $result;
+    }
+
+    function get_user($id)
+    {
+        $query = $this->db->get_where('user', array('id' => $id));
+        return $query;
+    }
+
+    function delete($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('user');
+    }
+
+    function update($id,$nama,$username,$role){
+        $data = array(
+            'nama' => $nama,
+            'username' => $username,
+            'role' => $role,
+        );
+        $this->db->where('id', $id);
+        $this->db->update('user', $data);
+    }
 }
 
 

@@ -28,4 +28,14 @@ class Home extends CI_Controller {
 	{
 		$this->load->view('our_team');
 	}
+
+	public function login()
+	{
+		if ($this->session->id) {
+			redirect('home');
+		}else{
+			$this->load->view('login');
+		}
+		
+	}
 }

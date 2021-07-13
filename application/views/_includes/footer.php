@@ -19,7 +19,7 @@
                                 <li><a href="<?php echo base_url('home'); ?>">Home</a></li>
                                 <li><a href="<?php echo base_url('wisata/rekreasi'); ?>">Rekreasi</a></li>
                                 <li><a href="<?php echo base_url('wisata/kuliner'); ?>">Kuliner</a></li>
-                                <li><a href="<?php echo base_url('home'); ?>">Our Team</a></li>
+                                <li><a href="<?php echo base_url('home/team'); ?>">Our Team</a></li>
                             </ul>
                         </div>
                         <!-- footer menu one end -->

@@ -21,7 +21,7 @@
         
         <!-- Intro Area
         ===================================== -->
-        <header class="pt100 pb100 bg-grad-stellar" style="background-image: url(<?php echo base_url('public/');?>assets/img/bg/home.jpg); background-repeat: no-repeat; background-color: #fff; background-size: cover;">
+        <header class="pt100 pb100 bg-grad-stellar" style="background-image: url(<?php echo base_url('public/');?>assets/img/bg/bg-list.jpg); background-repeat: no-repeat; background-color: #fff; background-size: cover;">
 
                 <div class="container mt100 mb70">
                     
@@ -33,7 +33,7 @@
                             <p class="lead mt25 color-gray animated" data-animation="fadeInUp" data-animation-delay="200">
                                 Selamat datang di Sistem Informasi Wisata Kota Depok.<br>
                                 
-                                <a class="button button-circle button-grad-stellar button-lg mt20">Jelajah Sekarang</a>
+                                <a class="button button-circle button-grad-stellar button-lg mt20" href="<?php echo base_url('wisata'); ?>">Jelajah Sekarang</a>
                             </p>
                         </div>
                         
@@ -61,7 +61,7 @@
 
                     <div class="col-md-8 col-md-offset-2 text-center">
                         <p class="lead">
-                            SIWIKODE atau Sistem Informasi Wisata Kota Depok adalah sebuah sistem informasi dimana kalian dapat melihat informasi wisata rekreasi atau wisata kuliner yang terdapat di kota Depok.
+                            SIWIKODE atau Sistem Informasi Wisata Kota Depok adalah sebuah sistem informasi dimana kalian dapat melihat informasi tentang wisata rekreasi atau wisata kuliner yang terdapat di kota Depok.
                         </p>
                     </div>
                     
@@ -109,7 +109,7 @@
                 
                 <div class="row">
                     <div class="col-md-12 text-center mt25 mb25">
-                        <a class="button button-circle button-lg button-white hover-ripple-out">Mari Mulai Menjelajah!</a>
+                        <a class="button button-circle button-lg button-white hover-ripple-out" href="<?php echo base_url('wisata'); ?>">Mari Mulai Menjelajah!</a>
                     </div>
                 </div>
                 
